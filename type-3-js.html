@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- CSS -->
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+    @import url('https://fonts.googleapis.com/css?family=Raleway:300,400');
+    *{
+      margin: 0;
+    }
+    body{
+      background: #3AAFA9;
+      color: white;box-shadow: inset -53px -41px 198px #379E99, inset 95px -2px 200px #379e99;
+      display:flex;align-items:center;height:100vh;justify-content: center;
+    }
+
+    .typewriter {
+      font-family: 'Anonymous Pro', monospace;
+      width: 70%;  
+    }
+    h1 {
+      overflow: hidden;
+      margin: 0 auto;
+      display: inline-block;
+      font-weight: normal;
+
+    }
+    h1:after{
+    content: '';
+      display: inline-block;
+      background-color: white;
+      margin-left: 2px;
+      height: 25px;
+      width: 4px;
+      animation: cursor 0.4s infinite;
+    }
+
+    /* The typewriter cursor effect */
+    @keyframes cursor {
+      0% { opacity: 1; }
+      49% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+  </style>
+
+</head>
+<body>
+  
+  <div class="typewriter">
+    <h1 id="text">
+      "Usando somente CSS..."      
+    </h1>
+  </div>
+
+  <script>
+    var i = 0;
+    // var A = 0;
+    var tag = document.getElementById("text");
+    var html = document.getElementById("text").innerHTML;
+    var attr = tag.setAttribute("data", html);
+    var txt = tag.getAttribute("data");
+    var speed = 170;
+
+    function typeWriter() {
+      if (i <= txt.length) {
+        document.getElementById("text").innerHTML = txt.slice(0 , i + 1);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+        //console.log(document.getElementById("text").innerHTML);
+    }
+    typeWriter();
+  </script>
+
+</body>
+</html>
